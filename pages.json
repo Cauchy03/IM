@@ -8,12 +8,38 @@
 			}
 		},
 		{
-			"path": "pages/login/index",
+			"path": "pages/login/login",
 			"style": {
 				"navigationStyle": "custom"
 			}
+		}, {
+			"path": "pages/register/register",
+			"style": {
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/userHome/userHome",
+			"style": {
+				"navigationStyle": "custom"
+			}
+
 		}
-	],
+	    ,{
+            "path" : "pages/chat/chat",
+            "style" :                                                                                    
+            {
+                "navigationStyle": "custom"
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
