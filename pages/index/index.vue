@@ -1,14 +1,15 @@
 <template>
 	<view class="content">
 		<view class="top-bar">
-			<view class="top-bar-left">
+			<view class="top-bar-left" @tap="goUserHome">
 				<image src="../../static/images/index/OIP.jpg"></image>
 			</view>
-			<view class="top-bar-center">
+
+			<view class="top-bar-center" >
 				<image class="logo" src="../../static//images/index/火.png"></image>
 			</view>
 			<view class="top-bar-right">
-				<view class="search">
+				<view class="search" @tap="goSearch">
 					<image src="../../static/images/index/search.png"></image>
 				</view>
 				<view class="add">
@@ -37,7 +38,7 @@
 			<view class="friends" v-for="item in 20">
 				<view class="friends-list">
 					<view class="friends-list-left">
-						<text class="tip">1</text>
+						<text class="tip">1111</text>
 						<image src="../../static/images/index/OIP.jpg"></image>
 					</view>
 					<view class="friends-list-right">
@@ -60,9 +61,24 @@
 	} from 'vue'
 	let a = ref(1)
 	console.log(a);
+
+	const goSearch = () => {
+		uni.navigateTo({
+			url: '../search/search'
+		})
+	}
+
+	const goUserHome = () => {
+		console.log(1);
+		uni.navigateTo({
+			url: '../userHome/userHome'
+		})
+	}
 </script>
 
 <style lang="scss" scoped>
+	@import '../../commons/css/header.scss';
+
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -70,65 +86,6 @@
 		justify-content: center;
 		padding-top: var(--status-bar-height);
 		padding-bottom: $uni-spacing-col-base;
-
-		.top-bar {
-			position: fixed;
-			z-index: 999;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 88rpx;
-			padding-top: var(--status-bar-height); // 去除导航栏 顶部沉浸式问题
-			// box-sizing: border-box;
-			background: $uni-bg-color;
-			box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.1);
-
-			.top-bar-left {
-				float: left;
-				padding-left: $uni-spacing-col-base;
-
-				image {
-					margin-top: 10rpx;
-					width: 68rpx;
-					height: 68rpx;
-					border-radius: 16px;
-				}
-			}
-
-			.top-bar-center {
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: 0;
-				bottom: 0;
-				margin: auto;
-				text-align: center;
-
-				.logo {
-					padding-top: calc(var(--status-bar-height) + 20rpx);
-					width: 88rpx;
-					height: 42rpx;
-				}
-			}
-
-			.top-bar-right {
-				float: right;
-				padding-right: 14rpx;
-
-				.search,
-				.add {
-					width: 88rpx;
-					height: 88rpx;
-					display: inline-block;
-				}
-
-				image {
-					padding: 18rpx 0 0 18rpx;
-					width: 52rpx;
-					height: 52rpx;
-				}
-			}
-		}
 
 		.main {
 			padding-top: 104rpx;
@@ -157,12 +114,14 @@
 				.tip {
 					position: absolute;
 					z-index: 10;
-					top: -6rpx;
+					top: -8rpx;
 					left: 68rpx;
+					min-width: 20rpx;
+					padding: 0 8rpx;
 					width: 36rpx;
 					height: 36rpx;
 					background: $uni-color-warning;
-					border-radius: $uni-border-radius-circle;
+					border-radius: 18rpx;
 					font-size: $uni-font-size-sm;
 					color: $uni-text-color-inverse;
 					text-align: center;

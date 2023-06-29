@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="bar">
 			<view class="top-bar-right">
-				<view class="text">注册</view>
+				<view class="text" tap="gotoRegister">注册</view>
 			</view>
 			<view class="logo">
 				<image src="../../static/images/login/火.png"></image>
@@ -27,6 +27,11 @@
 </template>
 
 <script setup>
+	const gotoRegister = () => {
+		uni.navigateTo({
+			url: '../register/register'
+		})
+	}
 </script>
 
 <style lang="scss" scoped>
@@ -64,7 +69,7 @@
 
 			.logo {
 				text-align: center;
-
+				
 				image {
 					padding-top: 256rpx;
 					width: 194rpx;
@@ -93,7 +98,9 @@
 
 				.login-form {
 					padding-top: 48rpx;
+
 					input {
+						width: 84%;
 						height: 88rpx;
 						font-size: $uni-font-size-lg;
 						color: $uni-text-color;
@@ -102,6 +109,7 @@
 						border-bottom: 1px solid $uni-border-color;
 					}
 				}
+
 				.warning {
 					float: left;
 					font-size: $uni-font-size-lg;
